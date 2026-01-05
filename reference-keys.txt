@@ -61,3 +61,9 @@ spatial-error-model
 spatial-lag-model
 spatial-heterogeneity-and-spatially-varying-coefficients
 geographically-weighted-regression-gwr
+fig:topo-relations
+fig:spatial-relations
+fig:overlay-types
+fig:buffer-types
+fig:single-layer-ops
+fig:multi-layer-ops
