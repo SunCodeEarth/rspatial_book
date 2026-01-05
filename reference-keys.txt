@@ -1,12 +1,3 @@
-fig:wkt-primitives-sp
-fig:wkt-multipart-sp
-fig:sf-sfc-sfg
-fig:topo-relations
-fig:spatial-relations
-fig:overlay-types
-fig:buffer-types
-fig:single-layer-ops
-fig:multi-layer-ops
 fig:globalSpAutocorrelation
 fig:moranScatterPlot
 intro
@@ -26,7 +17,7 @@ save-sf-objects
 reprojecting-or-projection-transformation
 transform-or-reproject-sf-objects
 raster-data-in-r
-rasterstack-vs-rasterbrick
+deriving-ndvi-from-raster
 lab-assignment
 spatialops
 attribute-join

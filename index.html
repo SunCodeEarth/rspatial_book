@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Data Analysis and Visualization with R: Spatial</title>
   <meta name="description" content="Learning materials for Data Analysis and Visualization with R" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Data Analysis and Visualization with R: Spatial" />
   <meta property="og:type" content="book" />
@@ -51,28 +51,12 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
-<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-1.3.1/leaflet.js"></script>
-<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
-<script src="libs/proj4-2.6.2/proj4.min.js"></script>
-<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
-<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.2.2/leaflet.js"></script>
-<script src="libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
-<script src="libs/leaflet-providers-plugin-2.2.2/leaflet-providers-plugin.js"></script>
-<link href="libs/HomeButton-0.0.1/home-button.css" rel="stylesheet" />
-<script src="libs/HomeButton-0.0.1/home-button.js"></script>
-<script src="libs/HomeButton-0.0.1/easy-button-src.min.js"></script>
-<script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
-<link href="libs/mapviewCSS-0.0.1/mapview-popup.css" rel="stylesheet" />
-<link href="libs/mapviewCSS-0.0.1/mapview.css" rel="stylesheet" />
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -82,7 +66,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -188,7 +172,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#raster-data-in-r"><i class="fa fa-check"></i><b>1.5</b> Raster data in R</a>
 <ul>
-<li class="chapter" data-level="1.5.1" data-path="intro.html"><a href="intro.html#rasterstack-vs-rasterbrick"><i class="fa fa-check"></i><b>1.5.1</b> RasterStack vs RasterBrick</a></li>
+<li class="chapter" data-level="1.5.1" data-path="intro.html"><a href="intro.html#deriving-ndvi-from-raster"><i class="fa fa-check"></i><b>1.5.1</b> Deriving NDVI from Raster</a></li>
 </ul></li>
 <li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#lab-assignment"><i class="fa fa-check"></i><b>1.6</b> Lab Assignment</a></li>
 </ul></li>
@@ -245,7 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.1.1" data-path="spregression.html"><a href="spregression.html#global-indicators-of-spatial-autocorrelation"><i class="fa fa-check"></i><b>4.1.1</b> Global Indicators of Spatial Autocorrelation</a></li>
 <li class="chapter" data-level="4.1.2" data-path="spregression.html"><a href="spregression.html#local-indicators-of-spatial-autocorrelation"><i class="fa fa-check"></i><b>4.1.2</b> Local Indicators of Spatial Autocorrelation</a></li>
-<li class="chapter" data-level="4.1.3" data-path="spregression.html"><a href="spregression.html#bivariate-morans-i-spatial-association"><i class="fa fa-check"></i><b>4.1.3</b> <del>Bivariate Moran’s I (Spatial Association)</del></a></li>
+<li class="chapter" data-level="4.1.3" data-path="spregression.html"><a href="spregression.html#bivariate-morans-i-spatial-association"><i class="fa fa-check"></i><b>4.1.3</b> Bivariate Moran’s I (Spatial Association)</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="spregression.html"><a href="spregression.html#spatial-error-and-lag-models"><i class="fa fa-check"></i><b>4.2</b> Spatial Error and Lag Models</a>
 <ul>
@@ -280,32 +264,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Data Analysis and Visualization with R: Spatial</h1>
 <p class="author"><em>Compiled by Shipeng Sun <br>Department of Geography and Environmental Science <br> Hunter College <br> 695 Park Ave <br> New York, NY 10065</em></p>
-<p class="date"><em>Last updated: April 08, 2025</em></p>
+<p class="date"><em>Last updated: January 04, 2026</em></p>
 </div>
 <div id="prerequisites-and-preparations" class="section level1 unnumbered hasAnchor">
 <h1>Prerequisites and Preparations<a href="index.html#prerequisites-and-preparations" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>To get the most out of this spatial section of <strong>Data Analysis and Visualization with R</strong>, you should have:</p>
 <ul>
 <li><strong>basic knowledge</strong> of R/RStudio, generic data processing, and R plots covered in the first two sections.</li>
-<li>a recent version of <a href="https://cran.r-project.org/">R</a> and <a href="https://www.rstudio.com/">RStudio</a> on your computer.</li>
+<li>a recent version of <a href="https://cran.r-project.org/">R</a> and <a href="https://posit.co/download/rstudio-desktop/">RStudio Desktop</a> on your computer.</li>
 </ul>
 <p><strong>Recommended Setting-up Steps</strong>:</p>
 <ul>
 <li><p>Create a new RStudio project <strong><em>R-spatial</em></strong> in a new folder <strong><em>R-spatial</em></strong>.</p></li>
-<li><p>Create a new folder under <strong><em>R-spatial</em></strong> and name it <strong><em>data</em></strong>.</p></li>
-<li><p>If you have your working directory set to <strong><em>R-spatial</em></strong> and it contains a folder called <strong><em>data</em></strong>, you can copy and run the following lines in R:</p></li>
+<li><p>Create a new folder named <strong><em>data</em></strong> under <strong><em>R-spatial</em></strong>.</p></li>
+<li><p>Once you have your working directory set to <strong><em>R-spatial</em></strong> and it contains a folder called <strong><em>data</em></strong>, you can copy and run the following lines in R:</p></li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" tabindex="-1"></a><span class="fu">download.file</span>(<span class="st">&quot;http://www.geo.hunter.cuny.edu/~ssun/R-Spatial/data/R-spatial-data.zip&quot;</span>,</span>
 <span id="cb1-2"><a href="index.html#cb1-2" tabindex="-1"></a>              <span class="st">&quot;R-spatial-data.zip&quot;</span>);</span>
 <span id="cb1-3"><a href="index.html#cb1-3" tabindex="-1"></a><span class="fu">unzip</span>(<span class="st">&quot;R-spatial-data.zip&quot;</span>, <span class="at">exdir =</span> <span class="st">&quot;data&quot;</span>)</span></code></pre></div>
-<p>You can also download the data manually here <a href="http://www.geo.hunter.cuny.edu/~ssun/R-Spatial/data/R-spatial-data.zip">R-spatial-data.zip</a> and extract the files inside.</p>
+<p>You can also download the data manually here <a href="http://www.geo.hunter.cuny.edu/~ssun/R-Spatial/data/R-spatial-data.zip">R-spatial-data.zip</a> and extract the files inside to <strong><em>R-spatial/data</em></strong> folder.</p>
 <ul>
 <li>Install and load the following libraries for spatial data handling:
 <ul>
 <li><a href="https://cran.r-project.org/package=sf"><code>sf</code></a></li>
 <li><a href="https://CRAN.R-project.org/package=sp"><code>sp</code></a></li>
 <li><a href="https://CRAN.R-project.org/package=rgdal"><code>rgdal</code></a></li>
-<li><a href="https://CRAN.R-project.org/package=raster"><code>raster</code></a></li>
+<li><a href="https://CRAN.R-project.org/package=terra"><code>terra</code></a></li>
 <li><a href="https://CRAN.R-project.org/package=rgeos"><code>rgeos</code></a></li>
 <li><a href="https://cran.r-project.org/package=dplyr"><code>dplyr</code></a></li>
 </ul></li>
@@ -321,30 +305,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li>You can use the standard methods of <code>install.packages</code> and <code>require</code> or <code>library</code> to install and load these R packages.</li>
 </ul>
-<p>Most efficiently, you can run the following script in RStudio to install all the packages that will be used for the spatial section:</p>
+<p>Most efficiently, you can run the following script in RStudio to install the packages that will be used for the spatial section:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="index.html#cb2-1" tabindex="-1"></a><span class="co"># Load a list of packages. Install them first if they are not available.</span></span>
 <span id="cb2-2"><a href="index.html#cb2-2" tabindex="-1"></a><span class="co"># The list of packages to be installed</span></span>
 <span id="cb2-3"><a href="index.html#cb2-3" tabindex="-1"></a>list.of.packages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;sf&quot;</span>, <span class="st">&quot;sp&quot;</span>, <span class="st">&quot;spatial&quot;</span>, <span class="st">&quot;maptools&quot;</span>, <span class="st">&quot;rgeos&quot;</span>,<span class="st">&quot;rgdal&quot;</span>,</span>
-<span id="cb2-4"><a href="index.html#cb2-4" tabindex="-1"></a>                      <span class="st">&quot;raster&quot;</span>, <span class="st">&quot;grid&quot;</span>, <span class="st">&quot;rasterVis&quot;</span>,</span>
-<span id="cb2-5"><a href="index.html#cb2-5" tabindex="-1"></a>                      <span class="st">&quot;tidyverse&quot;</span>, <span class="st">&quot;magrittr&quot;</span>, <span class="st">&quot;ggpubr&quot;</span>, <span class="st">&quot;lubridate&quot;</span>,</span>
+<span id="cb2-4"><a href="index.html#cb2-4" tabindex="-1"></a>                      <span class="st">&quot;terra&quot;</span>, <span class="st">&quot;grid&quot;</span>, <span class="st">&quot;rasterVis&quot;</span>,</span>
+<span id="cb2-5"><a href="index.html#cb2-5" tabindex="-1"></a>                      <span class="st">&quot;tidyverse&quot;</span>, <span class="st">&quot;magrittr&quot;</span>, <span class="st">&quot;ggpubr&quot;</span>, <span class="st">&quot;lubridate&quot;</span>,<span class="st">&quot;patchwork&quot;</span></span>
 <span id="cb2-6"><a href="index.html#cb2-6" tabindex="-1"></a>                      <span class="st">&quot;devtools&quot;</span>, <span class="st">&quot;htmlwidgets&quot;</span>, <span class="st">&quot;mapview&quot;</span>,</span>
-<span id="cb2-7"><a href="index.html#cb2-7" tabindex="-1"></a>                      <span class="st">&quot;classInt&quot;</span>, <span class="st">&quot;RColorBrewer&quot;</span>, <span class="st">&quot;ggmap&quot;</span>, <span class="st">&quot;tmap&quot;</span>, <span class="st">&quot;leaflet&quot;</span>, <span class="st">&quot;mapview&quot;</span>, </span>
-<span id="cb2-8"><a href="index.html#cb2-8" tabindex="-1"></a>                      <span class="st">&quot;ggrepel&quot;</span>, <span class="st">&quot;ggsn&quot;</span>,</span>
-<span id="cb2-9"><a href="index.html#cb2-9" tabindex="-1"></a>                      <span class="st">&quot;spdep&quot;</span>,<span class="st">&quot;spatialreg&quot;</span>,<span class="st">&quot;GWmodel&quot;</span>);</span>
-<span id="cb2-10"><a href="index.html#cb2-10" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="index.html#cb2-11" tabindex="-1"></a><span class="co"># Check out the packages that have not been installed yet.</span></span>
-<span id="cb2-12"><a href="index.html#cb2-12" tabindex="-1"></a>new.packages <span class="ot">&lt;-</span> list.of.packages[<span class="sc">!</span>(list.of.packages <span class="sc">%in%</span> <span class="fu">installed.packages</span>()[,<span class="st">&quot;Package&quot;</span>])]</span>
-<span id="cb2-13"><a href="index.html#cb2-13" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="index.html#cb2-14" tabindex="-1"></a><span class="co"># Install those missing packages first. It could take a long time for the first time.</span></span>
-<span id="cb2-15"><a href="index.html#cb2-15" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">length</span>(new.packages)<span class="sc">&gt;</span><span class="dv">0</span>) <span class="fu">install.packages</span>(new.packages)</span>
-<span id="cb2-16"><a href="index.html#cb2-16" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="index.html#cb2-17" tabindex="-1"></a><span class="co"># Load all packages.</span></span>
-<span id="cb2-18"><a href="index.html#cb2-18" tabindex="-1"></a><span class="fu">lapply</span>(list.of.packages,<span class="cf">function</span>(x) {</span>
-<span id="cb2-19"><a href="index.html#cb2-19" tabindex="-1"></a>  <span class="fu">require</span>(x,<span class="at">character.only =</span> <span class="cn">TRUE</span>,<span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-20"><a href="index.html#cb2-20" tabindex="-1"></a>})</span>
-<span id="cb2-21"><a href="index.html#cb2-21" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="index.html#cb2-22" tabindex="-1"></a><span class="co"># Or load specific packages when needed</span></span>
-<span id="cb2-23"><a href="index.html#cb2-23" tabindex="-1"></a><span class="fu">require</span>(sp); <span class="fu">require</span>(sf); <span class="fu">library</span>(raster)</span></code></pre></div>
+<span id="cb2-7"><a href="index.html#cb2-7" tabindex="-1"></a>                      <span class="st">&quot;classInt&quot;</span>, <span class="st">&quot;RColorBrewer&quot;</span>, </span>
+<span id="cb2-8"><a href="index.html#cb2-8" tabindex="-1"></a>                      <span class="st">&quot;ggmap&quot;</span>, <span class="st">&quot;OpenStreetMap&quot;</span>,</span>
+<span id="cb2-9"><a href="index.html#cb2-9" tabindex="-1"></a>                      <span class="st">&quot;tmap&quot;</span>, <span class="st">&quot;leaflet&quot;</span>, <span class="st">&quot;mapview&quot;</span>, </span>
+<span id="cb2-10"><a href="index.html#cb2-10" tabindex="-1"></a>                      <span class="st">&quot;ggrepel&quot;</span>, <span class="st">&quot;ggsn&quot;</span>,</span>
+<span id="cb2-11"><a href="index.html#cb2-11" tabindex="-1"></a>                      <span class="st">&quot;spdep&quot;</span>,<span class="st">&quot;spatialreg&quot;</span>,<span class="st">&quot;GWmodel&quot;</span>);</span>
+<span id="cb2-12"><a href="index.html#cb2-12" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="index.html#cb2-13" tabindex="-1"></a><span class="co"># Check out the packages that have not been installed yet.</span></span>
+<span id="cb2-14"><a href="index.html#cb2-14" tabindex="-1"></a>new.packages <span class="ot">&lt;-</span> list.of.packages[<span class="sc">!</span>(list.of.packages <span class="sc">%in%</span> <span class="fu">installed.packages</span>()[,<span class="st">&quot;Package&quot;</span>])]</span>
+<span id="cb2-15"><a href="index.html#cb2-15" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="index.html#cb2-16" tabindex="-1"></a><span class="co"># Install those missing packages first. It could take a long time for the first time.</span></span>
+<span id="cb2-17"><a href="index.html#cb2-17" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">length</span>(new.packages)<span class="sc">&gt;</span><span class="dv">0</span>) <span class="fu">install.packages</span>(new.packages)</span>
+<span id="cb2-18"><a href="index.html#cb2-18" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="index.html#cb2-19" tabindex="-1"></a><span class="co"># Load all packages.</span></span>
+<span id="cb2-20"><a href="index.html#cb2-20" tabindex="-1"></a><span class="fu">lapply</span>(list.of.packages,<span class="cf">function</span>(x) {</span>
+<span id="cb2-21"><a href="index.html#cb2-21" tabindex="-1"></a>  <span class="fu">require</span>(x,<span class="at">character.only =</span> <span class="cn">TRUE</span>,<span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-22"><a href="index.html#cb2-22" tabindex="-1"></a>})</span>
+<span id="cb2-23"><a href="index.html#cb2-23" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="index.html#cb2-24" tabindex="-1"></a><span class="co"># Or load specific packages when needed</span></span>
+<span id="cb2-25"><a href="index.html#cb2-25" tabindex="-1"></a><span class="fu">require</span>(sp); <span class="fu">require</span>(sf); <span class="fu">library</span>(raster)</span></code></pre></div>
 <div id="references" class="section level2 unnumbered hasAnchor">
 <h2>References<a href="index.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Bivand, RS., Pebesma, E., Gómez-Rubio, V. (2013): <a href="https://link.springer.com/book/10.1007%2F978-1-4614-7618-4">Applied Spatial Data Analysis with R</a></p>
@@ -420,20 +406,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
