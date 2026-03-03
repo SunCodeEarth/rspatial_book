@@ -262,7 +262,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Data Analysis and Visualization with R: Spatial</h1>
 <p class="author"><em>Compiled by Shipeng Sun <br>Department of Geography and Environmental Science <br> Hunter College <br> 695 Park Ave <br> New York, NY 10065</em></p>
-<p class="date"><em>Last updated: January 05, 2026</em></p>
+<p class="date"><em>Last updated: March 03, 2026</em></p>
 </div>
 <div id="prerequisites-and-preparations" class="section level1 unnumbered hasAnchor">
 <h1>Prerequisites and Preparations<a href="index.html#prerequisites-and-preparations" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -277,10 +277,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Create a new folder named <strong><em>data</em></strong> under <strong><em>R-spatial</em></strong>.</p></li>
 <li><p>Once you have your working directory set to <strong><em>R-spatial</em></strong> and it contains a folder called <strong><em>data</em></strong>, you can copy and run the following lines in R:</p></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" tabindex="-1"></a><span class="fu">download.file</span>(<span class="st">&quot;http://www.geo.hunter.cuny.edu/~ssun/R-Spatial/data/R-spatial-data.zip&quot;</span>,</span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" tabindex="-1"></a><span class="fu">download.file</span>(<span class="st">&quot;https://www.geo.hunter.cuny.edu/~ssun/R-Spatial/data/R-spatial-data.zip&quot;</span>,</span>
 <span id="cb1-2"><a href="index.html#cb1-2" tabindex="-1"></a>              <span class="st">&quot;R-spatial-data.zip&quot;</span>);</span>
 <span id="cb1-3"><a href="index.html#cb1-3" tabindex="-1"></a><span class="fu">unzip</span>(<span class="st">&quot;R-spatial-data.zip&quot;</span>, <span class="at">exdir =</span> <span class="st">&quot;data&quot;</span>)</span></code></pre></div>
-<p>You can also download the data manually here <a href="http://www.geo.hunter.cuny.edu/~ssun/R-Spatial/data/R-spatial-data.zip">R-spatial-data.zip</a> and extract the files inside to <strong><em>R-spatial/data</em></strong> folder.</p>
+<p>You can also download the data manually here <a href="https://www.geo.hunter.cuny.edu/~ssun/R-Spatial/data/R-spatial-data.zip">R-spatial-data.zip</a> and extract the files inside to <strong><em>R-spatial/data</em></strong> folder.</p>
 <ul>
 <li>Install and load the following libraries for spatial data handling:
 <ul>
@@ -328,7 +328,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-22"><a href="index.html#cb2-22" tabindex="-1"></a>})</span>
 <span id="cb2-23"><a href="index.html#cb2-23" tabindex="-1"></a></span>
 <span id="cb2-24"><a href="index.html#cb2-24" tabindex="-1"></a><span class="co"># Or load specific packages when needed</span></span>
-<span id="cb2-25"><a href="index.html#cb2-25" tabindex="-1"></a><span class="fu">require</span>(sp); <span class="fu">require</span>(sf); <span class="fu">library</span>(raster)</span></code></pre></div>
+<span id="cb2-25"><a href="index.html#cb2-25" tabindex="-1"></a><span class="fu">require</span>(sp); <span class="fu">require</span>(sf); <span class="fu">library</span>(terra)</span></code></pre></div>
 <div id="references" class="section level2 unnumbered hasAnchor">
 <h2>References<a href="index.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Bivand, RS., Pebesma, E., Gómez-Rubio, V. (2013): <a href="https://link.springer.com/book/10.1007%2F978-1-4614-7618-4">Applied Spatial Data Analysis with R</a></p>
