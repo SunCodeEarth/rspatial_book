@@ -68,3 +68,4 @@ fig:overlay-types
 fig:buffer-types
 fig:single-layer-ops
 fig:multi-layer-ops
+geometric-operations-optional
